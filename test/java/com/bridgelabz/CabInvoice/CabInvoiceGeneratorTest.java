@@ -30,5 +30,6 @@ public class CabInvoiceGeneratorTest {
 		Ride[] rides = { new Ride(0.35, 1), new Ride(5.0, 10) };
 		double fare = invoiceGenerator.calculateFare(rides);
 		Assert.assertEquals(65, fare, 0.0);
+		Assert.assertEquals("[2.0, 65.0, 32.5]", invoiceGenerator.invoiceSummary());
 	}
 }
