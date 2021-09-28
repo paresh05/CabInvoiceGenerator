@@ -36,10 +36,10 @@ public class CabInvoiceGeneratorTest {
 	@Test
 	public void givenDistanceAndTimeOfPremiumRideShouldReturnTotalFare() {
 		CabInvoiceGenerator invoiceGenerator = new CabInvoiceGenerator();
-		double distance = 5.0;
+		double distance = 4.0;
 		int time = 10;
 		double fare = invoiceGenerator.calculateFare("Premium",distance, time);
-		Assert.assertEquals(95, fare, 0.0);
+		Assert.assertEquals(80, fare, 0.0);
 	}
 	
 }

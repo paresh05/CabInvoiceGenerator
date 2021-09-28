@@ -29,7 +29,7 @@ public class CabInvoiceGenerator {
 	public double totalFare = 0;
 	public double numberOfRides;
 
-	/**This Function is used to calculate the total fare
+	/**This Function is used to calculate the total fare of normal or premium rides
 	 * @param distance is the distance of the journey
 	 * @param time is the time of the journey
 	 * @return the total fare of the journey
