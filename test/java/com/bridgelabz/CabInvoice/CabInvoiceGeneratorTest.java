@@ -1,5 +1,7 @@
 package com.bridgelabz.CabInvoice;
 import static org.junit.Assert.assertEquals;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CabInvoiceGeneratorTest {
@@ -10,7 +12,7 @@ public class CabInvoiceGeneratorTest {
 		double distance = 0.35;
 		int time = 1;
 		double fare = invoiceGenerator.calculateFare(distance, time);
-		assertEquals(5, fare, 0.0);
+		Assert.assertEquals(5, fare, 0.0);
 	}
 	
 	@Test
@@ -19,6 +21,14 @@ public class CabInvoiceGeneratorTest {
 		double distance = 5.0;
 		int time = 10;
 		double fare = invoiceGenerator.calculateFare(distance, time);
-		assertEquals(60, fare, 0.0);
+		Assert.assertEquals(60, fare, 0.0);
+	}
+	
+	@Test
+	public void givenMultipleRidesShouldReturnTotalFare() {
+		CabInvoiceGenerator invoiceGenerator = new CabInvoiceGenerator();
+		Ride[] rides = { new Ride(0.35, 1), new Ride(5.0, 10) };
+		double fare = invoiceGenerator.calculateFare(rides);
+		Assert.assertEquals(65, fare, 0.0);
 	}
 }

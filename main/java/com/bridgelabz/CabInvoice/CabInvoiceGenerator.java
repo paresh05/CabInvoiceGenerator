@@ -4,11 +4,20 @@ package com.bridgelabz.CabInvoice;
  * @author paresh.praveen_ymedi
  *
  */
+class Ride{
+
+	public double distance;
+	public int time;
+	public Ride(double distance, int time) {
+		this.distance = distance;
+		this.time = time;
+	}
+}
 public class CabInvoiceGenerator {
 
 	public static final int COST_PER_TIME = 1;
-	public final double MINIMUM_COST_PER_KILOMETER = 10.0;
-	public final double MINIMUM_FARE = 5;
+	public static final double MINIMUM_COST_PER_KILOMETER = 10.0;
+	public static final double MINIMUM_FARE = 5;
 
 	/**
 	 * @param distance is the distance of the journey
@@ -24,5 +33,11 @@ public class CabInvoiceGenerator {
 			return totalFare;
 		}
 	}
-
+	public double calculateFare(Ride[] rides) {
+		double totalFare = 0;
+		for(Ride ride : rides) {
+			totalFare += calculateFare(ride.distance, ride.time);
+		}
+		return totalFare;
+		}
 } 
